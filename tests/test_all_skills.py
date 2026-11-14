@@ -39,6 +39,23 @@ class TestAllSkillsSTE100(unittest.TestCase):
             )
 
 
+class TestLinterRegression(unittest.TestCase):
+    def _lint(self, body: str):
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "SKILL.md"
+            p.write_text("---\nname: demo\ndescription: demo skill\n---\n" + body + "\n", encoding="utf-8")
+            return linter.lint_markdown(p, strict=True)
+
+    def test_semicolon_detected_even_when_line_has_inline_code(self):
+        res = self._lint("Run `ls`; then stop.")
+        self.assertFalse(res["passed"])
+        self.assertEqual(res["errors"][0]["rule"], "STE-8.1")
+
+    def test_semicolon_inside_inline_code_is_allowed(self):
+        self.assertTrue(self._lint("Run `a; b` now.")["passed"])
+
+
 class TestArgumentMappingCore(unittest.TestCase):
     def test_carrots_argument_map_and_exports(self):
         shorthand = (

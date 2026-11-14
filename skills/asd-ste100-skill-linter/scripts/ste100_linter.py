@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
-"""ASD-STE100 Structural & Lexical Linter for AI Skills (SKILL.md).
+"""STE-style Structural & Lexical Linter for AI Skills (SKILL.md).
 
-Enforces core ASD-STE100 rules to eliminate ambiguity and LLM hallucination:
+Checks a SUBSET of ASD-STE100 style rules (structure and a small banned-word list).
+It does NOT check the official approved-vocabulary dictionary or word classes, so a
+PASS means "STE-style", not formal ASD-STE100 compliance.
+
+Rules checked:
 - Sentence length: <= 20 words (procedural/list steps), <= 25 words (descriptive)
 - Zero semicolons (Rule 8.1)
 - No em-dashes or en-dashes (use hyphens or periods)
@@ -117,9 +121,10 @@ def lint_markdown(path: Path, strict: bool = True) -> Dict[str, Any]:
 
     for line_no, line in prose_lines:
         stripped = line.strip()
-        if ";" in line and "`" not in line:
+        prose_only = re.sub(r"`[^`]*`", "", line)
+        if ";" in prose_only:
             errors.append({"line": line_no, "rule": "STE-8.1", "message": "Semicolon detected. Split into separate sentences."})
-        if "—" in line or "–" in line:
+        if "—" in prose_only or "–" in prose_only:
             errors.append({"line": line_no, "rule": "SKILL-DASH", "message": "Em-dash or en-dash detected. Use hyphen or period."})
 
         # Treat headings, list items, table rows, blockquotes as standalone units

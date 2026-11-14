@@ -1,7 +1,8 @@
 [project]
 name = "dtt-ai"
 version = "1.0.0"
-description = "ASD-STE100 compliant AI Agent Skills Suite derived from The Open University DTT_1 course."
+description = "STE-style AI Agent Skills Suite derived from The Open University DTT_1 course."
+license = {text = "MIT (code); CC-BY-NC-SA-4.0 (skills text and docs)"}
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []

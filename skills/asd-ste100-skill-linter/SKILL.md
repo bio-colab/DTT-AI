@@ -1,6 +1,6 @@
 ---
 name: asd-ste100-skill-linter
-description: Enforce ASD-STE100 Simplified Technical English rules on AI skills, system prompts, and agent instructions to eliminate ambiguity and LLM hallucination. Use when authoring, reviewing, or linting SKILL.md files or inter-agent instructions.
+description: Enforce ASD-STE100 Simplified Technical English rules on AI skills, system prompts, and agent instructions to reduce ambiguity. Use when authoring, reviewing, or linting SKILL.md files or inter-agent instructions.
 ---
 # ASD-STE100 Skill Linter
 

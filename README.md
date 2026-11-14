@@ -1,13 +1,13 @@
 # Digital Thinking Tools — AI Skills Suite
 
-A production-ready suite of **13 AI Agent Skills** engineered from The Open University's OpenLearn course [*Digital thinking tools for better decision making* (DTT_1)](https://www.open.edu/openlearn/science-maths-technology/digital-thinking-tools-better-decision-making/content-section-overview).
+A suite of **13 AI Agent Skills** adapted from The Open University's OpenLearn course [*Digital thinking tools for better decision making* (DTT_1)](https://www.open.edu/openlearn/science-maths-technology/digital-thinking-tools-better-decision-making/content-section-overview).
 
-Every skill is authored in **ASD-STE100 Simplified Technical English** to eliminate grammatical ambiguity, prevent prompt drift, and minimize LLM hallucination, backed by **zero-dependency Python 3 CLI tools** and automated unit tests.
+Every skill is authored in **ASD-STE100 Simplified Technical English** in an STE-style controlled language (a linted subset of ASD-STE100) to reduce grammatical ambiguity, backed by **zero-dependency Python 3 CLI tools** and automated unit tests.
 
 ## Architecture Highlights
 
-- **100% Course Coverage (Sessions 1–8)**: Every framework, recipe, heuristic, and mathematical model in the 516-page course is operationalized into modular AI skills.
-- **ASD-STE100 Controlled Language**: All 13 `SKILL.md` files are linted in strict mode (`<= 20` words per procedural sentence, `<= 25` words descriptive, active voice, imperative mood, zero semicolons, zero em/en-dashes).
+- **Course Coverage (Sessions 1–8)**: Each session maps to at least one skill (see catalog). A per-section coverage matrix is not published yet.
+- **STE-style Controlled Language**: All 13 `SKILL.md` files are linted in strict mode (`<= 20` words per procedural sentence, `<= 25` words descriptive, active voice, imperative mood, zero semicolons, zero em/en-dashes).
 - **Comprehensive Argument Mapping Suite (4 Skills)**: End-to-end argument dissection (`Words -> Maps`), synthesis (`Maps -> Words`), base-evidence & implicit-assumption auditing, and multi-format export (**FreeMind `.mm`**, **Mermaid**, **Argdown**, **JSON**).
 - **Zero External Dependencies**: All executable scripts use Python 3.10+ standard library only.
 
@@ -73,5 +73,13 @@ Copy any folder from `skills/<skill-name>/` into your agent's skills directory (
 
 ## Attribution & License
 
+- **Skills text and docs** (`skills/**/SKILL.md`, `docs/`): adaptations of the course below, so they are distributed under CC BY-NC-SA 4.0 (non-commercial, share-alike).
 - **Course Content**: Adapted from *Digital thinking tools for better decision making* (DTT_1), © 2019–2020 The Open University, released under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 - **Code & Tooling**: Original Python scripts, tests, and repository scaffolding are licensed under the MIT License (see `LICENSE`).
+
+## Status & Limitations
+
+- **No empirical evaluation yet.** There is no measured evidence that these skills improve answer quality or reduce hallucination. A with/without-skill comparison is planned work.
+- **The linter is partial.** It checks sentence length, punctuation, passive-voice heuristics, and a small banned-word list. It does not check the official STE dictionary.
+- **Tests check structure and script output**, not agent behaviour.
+- English only.
