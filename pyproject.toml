@@ -1,0 +1,10 @@
+[project]
+name = "dtt-ai"
+version = "1.0.0"
+description = "ASD-STE100 compliant AI Agent Skills Suite derived from The Open University DTT_1 course."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
